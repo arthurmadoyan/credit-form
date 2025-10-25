@@ -30,7 +30,7 @@ export default function PersonalFormPage() {
   return (
     <FormWrapper
       title="Личные данные"
-      onNext={() => validateFields([firstName, lastName, phone, sex])}
+      onNext={() => validateFields({firstName, lastName, phone, sex})}
     >
       <div onChange={handleChange} className={styles.inputs}>
         <TextField

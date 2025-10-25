@@ -5,6 +5,7 @@ import {
   InputLabel,
   MenuItem,
   Select,
+  Skeleton,
   TextField,
   type SelectChangeEvent,
 } from '@mui/material';
@@ -42,11 +43,14 @@ export default function AddressDataPage() {
   };
 
   return (
-    <FormWrapper title="Адрес и место работы" onNext={() => validateFields([job, address])}>
+    <FormWrapper title="Адрес и место работы" onNext={() => validateFields({ job, address })}>
       {error && <div className="alert alert-danger">{error}</div>}
 
       {status === Statuses.PENDING ? (
-        <div>Загрузка категорий...</div>
+        <>
+          <Skeleton variant="text" sx={{ height: '60px' }} />
+          <Skeleton variant="text" sx={{ height: '60px' }} />
+        </>
       ) : (
         <>
           <FormControl sx={{ m: 1, minWidth: 120, margin: '0px' }} size="small" required={true}>
