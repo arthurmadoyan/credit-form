@@ -19,10 +19,18 @@ export const calculateTerm = (value: number): number => {
   return 1 * value;
 };
 
-export const validateFields = (fields: Array<string | number | null | undefined>): boolean => {
-  if (fields.some((el) => !el)) {
-    console.log('aaa');
+export const validateFields = (
+  fields: Record<string, string | number | undefined | null>,
+): boolean => {
+  const fieldsList = Object.keys(fields);
 
+  if (
+    fieldsList.some(
+      (key) =>
+        !fields[key] ||
+        (key === 'phone' && typeof fields[key] === 'string' && fields[key].length < 12),
+    )
+  ) {
     useUserDataStore.setState((state: State) => ({
       ...state,
       errors: 'Заполните все поля помеченные *',

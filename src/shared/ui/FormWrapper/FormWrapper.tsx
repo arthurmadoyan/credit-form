@@ -70,7 +70,7 @@ export const FormWrapper = ({ title, children, onNext }: FormWrapperProps) => {
 
       <div className={styles.content}>{children}</div>
 
-      <div className={styles.footer}>
+      <div className={`${styles.footer} ${currentStep === 0 && styles.footerOnFirstStep}`}>
         {currentStep !== 0 && (
           <button
             type="button"

@@ -19,7 +19,7 @@ export default function CreditParametersPage() {
   };
 
   return (
-    <FormWrapper title="Параметры займа" onNext={() => validateFields([loanAmount, loanTerm])}>
+    <FormWrapper title="Параметры займа" onNext={() => validateFields({ loanAmount, loanTerm })}>
       <Box sx={{ width: 250 }}>
         <Typography id="non-linear-slider" gutterBottom sx={{ color: 'black' }}>
           Сумма займа: ${calculateAmount(loanAmount ?? 0)}
